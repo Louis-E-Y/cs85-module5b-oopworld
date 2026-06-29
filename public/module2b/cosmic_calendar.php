@@ -30,16 +30,17 @@
 
 
 $firstName = 'Louis';
-$jsonString = file_get_contents(https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles);
+$jsonString = file_get_contents('https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles');
 $data = json_decode($jsonString);
 
+$nameLength = strlen($firstName);
+$dateTimeString = $data->dateTime;
 
 $date = new DateTime($dateTimeString);
 $dayOfYear = (int)$date->format('z') + 1;
 $month = $data->month;
 
-$nameLength = strlen($firstName);
-$dateTimeString = $data->dateTime;
+
 
 for ($i = $nameLength; $i <= $dayOfYear; $i++) {
     $cssClass = 'day-box';
@@ -47,13 +48,13 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
         $cssClass .= ' cosmic-both';
     }
     else if ($i % $nameLength == 0) {
-        cssClass .= ' cosmic-name';
+        $cssClass .= ' cosmic-name';
     }
     else if ($i % $month == 0) {
         $cssClass .= ' cosmic-month';
     }
 
-
+    echo "<div class='$cssClass'>$i</div>";
 
 
 

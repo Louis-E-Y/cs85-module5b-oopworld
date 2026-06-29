@@ -8,3 +8,6 @@ Route::get('/', function () {
 Route::get('/module2a/price_engine_refactored', function () {
     include public_path('module2a/price_engine_refactored.php');
 });
+Route::get('/module2b/cosmic_calendar', function () {
+    include public_path('module2b/cosmic_calendar.php');
+});
