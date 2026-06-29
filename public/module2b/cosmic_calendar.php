@@ -20,15 +20,6 @@
         <h1>Cosmic Calendar</h1>
         <div class="calendar-grid">
             <?php
-                // --- YOUR ENTIRE PHP SCRIPT GOES HERE ---
-            ?>
-        </div>
-    </div>
-</body>
-</html>
-
-
-
 $firstName = 'Louis';
 $jsonString = file_get_contents('https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles');
 $data = json_decode($jsonString);
@@ -56,8 +47,6 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
 
     echo "<div class='$cssClass'>$i</div>";
 
-
-
 }
 
 /* I started initializing all my variables as instructed, and setting up the basic for loop
@@ -66,3 +55,11 @@ variables, so I had to go back and fix that. I also realized I was using the wro
  the dateTimeString, so I had to fix that as well. 
 
 */
+            ?>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
