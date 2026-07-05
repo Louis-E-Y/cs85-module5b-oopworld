@@ -52,7 +52,8 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
 /* I started initializing all my variables as instructed, and setting up the basic for loop
 , then I pushed to keep track of my progress. I realized I forgot a lot of $s when referencing
 variables, so I had to go back and fix that. I also realized I was using the wrong variable for
- the dateTimeString, so I had to fix that as well. 
+ the dateTimeString, so I had to fix that as well. After I fixed more syntax issues, and I was
+ missing the echo statement, and it also turned out I had my entire code in the wrong spot.
 
 */
             ?>
