@@ -115,6 +115,21 @@ if ($ShowForm == TRUE) {
         }
     }
 }
+/*
+
+The first function validateInput takes data, and a field name, it checks if data is empty and if 
+not, it cleans it up and returns it.
+
+The second function validateEmail takes data and a field name, 
+it checks if data is empty and if not, it cleans it up and checks if its a valid email address and 
+returns it.
+
+The third function displayForm exits php briefly to set up html for a form, and then reenters
+php to print the values of the fields so data isnt lost if the user has to reenter the form.
+
+The rest of the code initializes variables, checks if the form has been submitted, validates the
+inputs, and either shows the form again with errors or sends the email and shows a success message
+*/
 
 ?>
 
