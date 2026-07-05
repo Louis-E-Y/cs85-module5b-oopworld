@@ -116,6 +116,8 @@ if ($ShowForm == TRUE) {
         }
     }
 }
+
+
 /*
 
 The first function validateInput takes data, and a field name, it checks if data is empty and if 
@@ -130,6 +132,10 @@ php to print the values of the fields so data isnt lost if the user has to reent
 
 The rest of the code initializes variables, checks if the form has been submitted, validates the
 inputs, and either shows the form again with errors or sends the email and shows a success message
+
+There are slight concerns of mine about the logic of emailing immediately before any submission
+because by default error is 0 and form displayed is TRUE, but I don't know how to fix this without
+changing the provided structure.
 */
 
 ?>
