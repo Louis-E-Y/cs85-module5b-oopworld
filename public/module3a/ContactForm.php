@@ -47,7 +47,8 @@ function validateEmail ($data, $fieldName) {
 function displayForm ($Sender, $Email, $Subject, $Message) {
     //function closes php code and just outputs html stuff, reopens at the end
     ?> <h2 style = "text-align: center;">Contact Me</h2>
-    <form name="contact" action="ContactForm.php" method="post">
+    <form <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        name="contact" action="/module3a/contact_form" method="post">
         <p>Your Name: 
                                           //inside each field go back to php and print value of field
             <input type="text" name="Sender" value="<?php echo $Sender; ?>"></p>
