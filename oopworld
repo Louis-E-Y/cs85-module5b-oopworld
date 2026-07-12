@@ -1,0 +1,110 @@
+<?php 
+
+class FoodLog {
+
+    public string $foodName;
+    public int $calorieCountPerServing;
+    public int $proteinCount;
+    public int $saturationLevel;
+    public int $costPerServing;
+    public int $tasteRating;
+    public bool $wasGood;
+
+    //standard constructor
+    public function __construct(string $foodName, int $calorieCountPerServing, 
+            int $proteinCount, int $saturationLevel, int $costPerServing, int $tasteRating, bool $wasGood) {
+            $this->foodName = $foodName;
+            $this->calorieCountPerServing = $calorieCountPerServing;
+            $this->proteinCount = $proteinCount;
+            $this->saturationLevel = $saturationLevel;
+            $this->costPerServing = $costPerServing;
+            $this->tasteRating = $tasteRating;
+            $this->wasGood = $wasGood;
+        }
+
+    //function to echo back entered info
+    public function displayFoodLog() {
+            echo "Food Name: " . $this->foodName . "\n";
+            echo "Calorie Count Per Serving: " . $this->calorieCountPerServing . "\n";
+            echo "Protein Count: " . $this->proteinCount . "\n";
+            echo "Saturation Level: " . $this->saturationLevel . "\n";
+            echo "Cost Per Serving: $" . $this->costPerServing . "\n";
+            echo "Taste Rating: " . $this->tasteRating . "/10\n";
+            echo "Was it good? " . ($this->wasGood ? "Yes" : "No") . "\n";
+
+
+        }
+    //function to calculate total calories based on number of servings, returns an integer value
+    public function calculateTotalCalories(int $numberOfServings): int {
+            return $this->calorieCountPerServing * $numberOfServings;
+        }
+    //function to calculate total cost based on number of servings, returns an integer value
+    public function calculateTotalCost(int $numberOfServings): int {
+        return $this->costPerServing * $numberOfServings;
+        }
+
+
+    //allow user to set whether the food was good or not, should output a boolean value
+    public function setGoodness(bool $wasGood): void {
+            $this->wasGood = $wasGood;
+        }
+git 
+
+
+    //function with decision logic, checking if calorie count and protein #s are good
+    public function isHealthy(): bool {
+            return $this->calorieCountPerServing < 300 && $this->proteinCount > 10;
+        }
+
+}
+
+$popcorn = new FoodLog("Popcorn", 150, 3, 5, 2, 8, true);
+$nerds = new FoodLog("Nerds", 200, 1, 2, 1, 10, false);
+
+
+$popcorn->setGoodness(true);
+$nerds->setGoodness(true);
+
+$popcorn->calculateTotalCalories(3);
+$nerds->calculateTotalCalories(2);
+
+$popcorn->calculateTotalCost(3);
+$nerds->calculateTotalCost(2);
+
+$popcorn->displayFoodLog();
+$nerds->displayFoodLog();
+
+
+//AI METHOD-------- Exact prompt used was the exact instructions: "Use and critique AI: Generate one method 
+// using ChatGPT or a similar tool."
+/*
+public function getRecommendation(): string {
+    if ($this->tasteRating >= 8 && $this->wasGood) {
+        return "I would definitely eat this again.";
+    } elseif ($this->tasteRating >= 5) {
+        return "It was okay, but not a favorite.";
+    } else {
+        return "I would not choose this again.";
+    }
+}
+
+my initial concern with chatgpts method is the simple if/else logic, as well as the usefulness of such a method
+since i almost definitely know this already, this class is to keep track of stuff that I dont remember. Im gonna change
+it below now to be something that also considers health, and is in my eyes a bit more useful.
+
+*/
+
+public function foodAward (): string {
+    if ($this->isHealthy && $this->wasGood && $this-> tasteRating >= 8 || calorieCountPerServing < 200) {
+        return "This food is a great choice!";
+    } elseif ($this->isHealthy && $this->wasGood && $this->tasteRating >= 5) {
+        return "This food is a decent choice.";
+    } else {
+        return "This food may not be the best choice.";
+    }
+}
+
+/*this updated version accounts for healthiness and is a harsher judge, I dont need to keep track of foods outsiude
+the really good ones in my opinion.*/
+
+?>
